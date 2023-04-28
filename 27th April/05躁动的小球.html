@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            width: 800px;
+            height: 500px;
+            margin: 100px auto;
+            background-color: pink;
+            position: relative;
+        }
+        .ball{
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box=document.getElementById('box');
+        function Ball(){
+            this.ball=document.createElement('div');
+            
+            var randNum=randomFn(20,30);
+            this.width=randNum;
+            this.height=randNum;
+            //秋的颜色
+            this.bgColor=`rgb(${randomFn(0,255)},${random(0,255)},${randomFn(0,255)})`;
+            //球的位置
+            this.left=randomFn(0,box.offsetWidth-randNum);
+            this.top=randomFn(0,box.offsetHeight-randNum);
+            //球运动时的速度
+            this.speedX=randomFn(-15,15);
+            this.speedY=randomFn(-15,15);
+
+        }
+        Ball.prototype.render=function(){
+            //将小球节点添加到容器中
+            box.appendChild(this.ball);
+            //为小球添加样式
+            this.ball.className='ball';
+            this.ball.style.width=this.width+'px';
+            this.ball.style.height=this.height+'px';
+            this.ball.style.backgroundColor=this.bgColor;
+            this.ball.style.left=this.left+'px';
+            this.ball.style.top=this.top+'px';
+        }
+
+        //利用循环随机生成小球
+        for(let i=1;i<=30;i++){
+            var b=new Ball();
+            b.render();
+        }
+
+
+        //定义一个随机获取数的方法
+        function randomFn(minNum,maxNum){
+            return parseInt(Math.random()*((maxNum+1-minNum)+minNum));
+        }
+    </script>
+</body>
+</html>

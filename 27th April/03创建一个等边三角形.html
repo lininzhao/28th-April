@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义创建等边三角形的构造函数
+        //属性：边长，高度
+        //方法：面积，周长
+
+        function Triangle(width,height){
+            this.width=width;
+            this.height=height;
+        };
+        Triangle.prototype.s=function(){
+            return this.width*this.height/2;
+        };
+        Triangle.prototype.l=function(){
+            return this.width*3;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义一个长方形的构造函数，输入参数，宽高，方法周长面积
+       function Rect(width,height){
+            this.width=width;
+            this.height=height;
+       }
+       Rect.prototype.l=function(){
+        return this.width*2+this.height*2;
+       };
+       Rect.prototype.s=function(){
+        return this.width*this.height;
+       };
+
+       var r1= new Rect(10,40);
+       var r2= new Rect(10,20);
+       var r3=new Rect(20,20);
+    </script>
+</body>
+</html>
